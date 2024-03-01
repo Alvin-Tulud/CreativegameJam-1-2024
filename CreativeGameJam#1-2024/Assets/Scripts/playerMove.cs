@@ -31,7 +31,7 @@ public class playerMove : MonoBehaviour
         }
 
         //jumping
-        if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.Space))
+        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space))
         {
             if (jump.GetComponent<canJump>().jumpState())
             {
