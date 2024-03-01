@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class OnOffPlatformState : MonoBehaviour
 {
-    public SpriteRenderer platformSprite;
-    public BoxCollider2D platformCollider;
     public bool initialPlatformState;
+    private SpriteRenderer platformSprite;
+    private BoxCollider2D platformCollider;
     private bool currentPlatformState;
 
 
@@ -15,6 +15,7 @@ public class OnOffPlatformState : MonoBehaviour
     {
         currentPlatformState = initialPlatformState;
         platformSprite = gameObject.GetComponent<SpriteRenderer>();
+        platformCollider = gameObject.GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
