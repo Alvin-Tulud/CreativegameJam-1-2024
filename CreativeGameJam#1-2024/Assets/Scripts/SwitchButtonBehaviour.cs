@@ -18,11 +18,11 @@ public class SwitchButtonBehaviour : MonoBehaviour
         buttonSprite= gameObject.GetComponent<SpriteRenderer>();
 
         walls = GameObject.FindGameObjectsWithTag("Wall");
-        door = GameObject.FindGameObjectWithTag("Door");
+        /*door = GameObject.FindGameObjectWithTag("Door");
 
 
         switching.AddRange(walls);
-        switching.Add(door);
+        switching.Add(door);*/
 
     }
 
@@ -49,14 +49,14 @@ public class SwitchButtonBehaviour : MonoBehaviour
     private void changeLevelState()
     {   
 
-        foreach (GameObject g in switching)
+        /*foreach (GameObject g in switching)
 
-        foreach (GameObject w in walls)
+        foreach (GameObject w in walls)*/
 
         foreach (GameObject w in walls)
         {
             //flip state of each one
-            g.GetComponent<stateFlip>().Flip(g.GetComponent<stateFlip>().getState());
+            w.GetComponent<stateFlip>().Flip(w.GetComponent<stateFlip>().getState());
         }
 
     }

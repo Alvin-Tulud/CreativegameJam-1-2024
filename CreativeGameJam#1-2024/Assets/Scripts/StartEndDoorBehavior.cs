@@ -5,7 +5,7 @@ using UnityEngine;
 public class StartEndDoor : MonoBehaviour
 {
     private bool PlayerTrigger;
-    private bool isEnd;
+    private bool isExit;
     private SpriteRenderer doorSprite;
     private stateFlip stateFlip;
 
@@ -13,19 +13,19 @@ public class StartEndDoor : MonoBehaviour
     void Start()
     {
         PlayerTrigger = false;
-        isEnd = false;
+        isExit = false;
         doorSprite = gameObject.GetComponent<SpriteRenderer>();
         stateFlip = GetComponent<stateFlip>();
-        stateFlip.setState(isEnd);
+        stateFlip.setState(isExit);
     }
 
     // Update is called once per frame
     void Update()
     {
-        isEnd = stateFlip.getState();
+        isExit = stateFlip.getState();
 
         // Changes color of door depending on if it is an entrance or exit
-        if (isEnd)
+        if (isExit)
         {
             // ... if it is an exit, become red
             doorSprite.color = new Color32(140, 65, 70, 255);
@@ -40,7 +40,7 @@ public class StartEndDoor : MonoBehaviour
     // Allows PlayerTrigger to change, only when the door is an exit
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("Player") && isEnd)
+        if (collision.transform.CompareTag("Player") && isExit)
         {
             PlayerTrigger = true;
         }
