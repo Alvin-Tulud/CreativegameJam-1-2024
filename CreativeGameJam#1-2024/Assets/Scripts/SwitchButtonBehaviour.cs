@@ -8,6 +8,8 @@ public class SwitchButtonBehaviour : MonoBehaviour
     private SpriteRenderer buttonSprite;
 
     public GameObject[] walls;
+    public GameObject door;
+    public GameObject[] coins;
 
 
     // Start is called before the first frame update
@@ -17,6 +19,8 @@ public class SwitchButtonBehaviour : MonoBehaviour
         buttonSprite= gameObject.GetComponent<SpriteRenderer>();
 
         walls = GameObject.FindGameObjectsWithTag("Wall");
+        door = GameObject.FindGameObjectWithTag("Door");
+        coins = GameObject.FindGameObjectsWithTag("Coin");
     }
 
     // Update is called once per frame
@@ -52,9 +56,6 @@ public class SwitchButtonBehaviour : MonoBehaviour
 
     private void changeLevelState()
     {   
-        GameObject door = GameObject.FindGameObjectWithTag("Door");
-        GameObject[] coins = GameObject.FindGameObjectsWithTag("Coin");
-
         foreach (GameObject w in walls)
         {
             w.GetComponent<OnOffPlatformState>().changePassthroughState();
