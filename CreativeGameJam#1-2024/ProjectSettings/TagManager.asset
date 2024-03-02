@@ -13,6 +13,7 @@ TagManager:
   - CoinBlock
   - Door
   - SafeWall
+  - World
   layers:
   - Default
   - TransparentFX
