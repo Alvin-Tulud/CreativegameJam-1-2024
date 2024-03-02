@@ -14,11 +14,11 @@ public class canJump : MonoBehaviour
     {
         RaycastHit2D hit;
         hit = Physics2D.Raycast(transform.position, Vector2.down, 0.6f, jumpableSurface);
-        if(!hit)
+        if (!hit)
         {
             canJumpNow = false;
         }
-        else if (hit.transform.CompareTag("Wall"))
+        else if (hit.transform.CompareTag("Wall") || hit.transform.CompareTag("SafeWall"))
         {
             canJumpNow = true;
         }

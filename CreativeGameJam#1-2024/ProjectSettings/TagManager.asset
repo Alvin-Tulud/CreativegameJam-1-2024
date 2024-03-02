@@ -12,6 +12,7 @@ TagManager:
   - Killzone
   - CoinBlock
   - Door
+  - SafeWall
   layers:
   - Default
   - TransparentFX

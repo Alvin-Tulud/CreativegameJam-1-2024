@@ -18,9 +18,8 @@ public class stateFlip : MonoBehaviour
         state = st;
     }
 
-    public bool Flip(bool st)
+    public void Flip()
     {   
-        state = !st;
-        return !st;
+        state = !state;
     }
 }

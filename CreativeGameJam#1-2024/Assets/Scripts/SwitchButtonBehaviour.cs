@@ -8,9 +8,7 @@ public class SwitchButtonBehaviour : MonoBehaviour
     private bool isPushedDown;
     private SpriteRenderer buttonSprite;
 
-    public GameObject[] walls;
-    public GameObject door;
-    public List<GameObject> switching;
+    public List<GameObject> switchableElements;
 
     // Start is called before the first frame update
     void Start()
@@ -18,26 +16,34 @@ public class SwitchButtonBehaviour : MonoBehaviour
         isPushedDown = false;
         buttonSprite= gameObject.GetComponent<SpriteRenderer>();
 
-        walls = GameObject.FindGameObjectsWithTag("Wall");
-        door = GameObject.FindGameObjectWithTag("Door");
-
-
-        switching.AddRange(walls);
-        switching.Add(door);
-
+        // Gather all elements that have the ability to be switched
+        setListOfSwitchableElements(new string[] {"Wall","Door"});
+        
     }
+
+    // Allows for a collection of switchable elements using an array of strings, representing the tags assigned to each of the elements.
+    private void setListOfSwitchableElements(string[] tags)
+    {
+        foreach( string tag in tags)
+        {
+            switchableElements.AddRange(new List<GameObject> (GameObject.FindGameObjectsWithTag(tag)));
+        }
+    }
+
+
 
     // Update is called once per frame
     void Update()
     {
         if (isPushedDown)
         {
-            //buttonSprite.color = new Color32(32, 67, 144, 255);
-            GetComponent<Animator>().Play("button_push", -1, 0f);
+            // Darker Blue color represents pressed down
+            buttonSprite.color = new Color32(32, 67, 144, 255);
         } 
         else
         {
-            //buttonSprite.color = new Color32(38, 218, 243, 255);
+            // Lighter Blue color represents unpressed
+            buttonSprite.color = new Color32(38, 218, 243, 255);
         }
     }
     
@@ -50,10 +56,10 @@ public class SwitchButtonBehaviour : MonoBehaviour
 
     private void changeLevelState()
     {   
-        foreach (GameObject g in switching)
+        foreach (GameObject element in switchableElements)
         {
             //flip state of each one
-            g.GetComponent<stateFlip>().Flip(g.GetComponent<stateFlip>().getState());
+            element.GetComponent<stateFlip>().Flip();
         }
 
     }
