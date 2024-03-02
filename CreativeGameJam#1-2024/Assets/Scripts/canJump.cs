@@ -18,7 +18,7 @@ public class canJump : MonoBehaviour
         {
             canJumpNow = false;
         }
-        else if (hit.transform.CompareTag("Wall") || hit.transform.CompareTag("SafeWall"))
+        else
         {
             canJumpNow = true;
         }

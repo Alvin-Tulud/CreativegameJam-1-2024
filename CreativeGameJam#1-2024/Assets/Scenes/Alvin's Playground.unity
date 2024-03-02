@@ -1918,6 +1918,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SwitchButton
       objectReference: {fileID: 0}
+    - target: {fileID: 2340386202247478914, guid: 158eb8f4951b5e94fb04b45d6df5a179, type: 3}
+      propertyPath: m_CullingMode
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7784646952489369186, guid: 158eb8f4951b5e94fb04b45d6df5a179, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7
@@ -2014,6 +2018,10 @@ PrefabInstance:
     - target: {fileID: 6524319989785932135, guid: 6999ff3afb1f48446a69b50eb5a8e67e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9048708982764607196, guid: 6999ff3afb1f48446a69b50eb5a8e67e, type: 3}
+      propertyPath: speed
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

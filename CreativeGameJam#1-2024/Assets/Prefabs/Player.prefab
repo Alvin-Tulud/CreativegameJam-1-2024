@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 14
-  speed: 6
+  speed: 8
 --- !u!58 &3181577317403004998
 CircleCollider2D:
   m_ObjectHideFlags: 0

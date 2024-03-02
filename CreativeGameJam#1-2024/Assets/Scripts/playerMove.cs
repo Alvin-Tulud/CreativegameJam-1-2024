@@ -23,11 +23,11 @@ public class playerMove : MonoBehaviour
         //left right
         if (Input.GetKey(KeyCode.A))
         {
-            rb.velocity = (-transform.right + -transform.up) * speed;
+            rb.AddForce(-transform.right * speed);
         }
         else if(Input.GetKey(KeyCode.D))
         {
-            rb.velocity = (transform.right + -transform.up) * speed;
+            rb.AddForce(transform.right * speed);
         }
 
         //jumping
