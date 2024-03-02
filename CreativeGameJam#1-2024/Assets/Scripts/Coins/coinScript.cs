@@ -23,6 +23,18 @@ public class coinScript : MonoBehaviour
         
     }
 
+    //Delete the coin if a player touches it
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        Debug.Log("im colliding coin " + col.name);
+        //Confirm that the player is what is touching the coin:
+        if (col.gameObject.CompareTag("Player"))
+        {
+            //Then delete the coin
+            Destroy(this.gameObject);
+        }
+    }
+
     //Turns coins to coinblocks and vice versa.
     public void CoinSwitch()
     {
