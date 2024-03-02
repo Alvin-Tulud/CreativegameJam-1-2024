@@ -15,6 +15,7 @@ public class SwitchButtonBehaviour : MonoBehaviour
     {
         isPushedDown = false;
         spriteAnimator = GetComponent<Animator>();
+        spriteAnimator.SetBool("isPushed", isPushedDown);
 
         // Gather all elements that have the ability to be switched
         setListOfSwitchableElements(new string[] {"Wall","Door"});
@@ -35,7 +36,7 @@ public class SwitchButtonBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        spriteAnimator.SetBool("isPushed",isPushedDown);
+  
     }
     
     //
@@ -43,6 +44,7 @@ public class SwitchButtonBehaviour : MonoBehaviour
     {
         changeLevelState();
         isPushedDown = !isPushedDown;
+        spriteAnimator.SetBool("isPushed", isPushedDown);
     }
 
     private void changeLevelState()
