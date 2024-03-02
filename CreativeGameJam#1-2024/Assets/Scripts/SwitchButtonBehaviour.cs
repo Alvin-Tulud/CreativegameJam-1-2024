@@ -38,12 +38,13 @@ public class SwitchButtonBehaviour : MonoBehaviour
         if (isPushedDown)
         {
             // Darker Blue color represents pressed down
-            buttonSprite.color = new Color32(32, 67, 144, 255);
+            //buttonSprite.color = new Color32(32, 67, 144, 255);
+            GetComponent<Animator>().Play("button_push", -1, 0f);
         } 
         else
         {
             // Lighter Blue color represents unpressed
-            buttonSprite.color = new Color32(38, 218, 243, 255);
+            //buttonSprite.color = new Color32(38, 218, 243, 255);
         }
     }
     
