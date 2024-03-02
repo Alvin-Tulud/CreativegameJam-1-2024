@@ -32,7 +32,7 @@ public class StartEndDoor : MonoBehaviour
         }
     }
 
-    void changeDoorState()
+    public void changeDoorState()
     {
         isEnd = !(isEnd);
     }
