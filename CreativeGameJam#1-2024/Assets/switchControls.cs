@@ -80,8 +80,6 @@ public class switchControls : MonoBehaviour
                 world.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             }
         }
-
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
