@@ -99,7 +99,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpableSurface:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1088
 --- !u!1 &5497959800688978733
 GameObject:
   m_ObjectHideFlags: 0
@@ -201,9 +201,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 5
+  m_LinearDrag: 0
   m_AngularDrag: 0
-  m_GravityScale: 5
+  m_GravityScale: 4
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -213,7 +213,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 2
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!114 &9048708982764607196
 MonoBehaviour:
@@ -227,8 +227,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84c8003bb74ae5a4f930d136077815d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 20
-  speed: 10
+  jumpForce: 14
+  speed: 6
 --- !u!58 &3181577317403004998
 CircleCollider2D:
   m_ObjectHideFlags: 0

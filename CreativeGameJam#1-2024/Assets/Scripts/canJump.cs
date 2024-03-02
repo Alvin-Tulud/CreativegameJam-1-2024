@@ -10,7 +10,7 @@ public class canJump : MonoBehaviour
     public LayerMask jumpableSurface;
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         RaycastHit2D hit;
         hit = Physics2D.Raycast(transform.position, Vector2.down, 0.6f, jumpableSurface);
