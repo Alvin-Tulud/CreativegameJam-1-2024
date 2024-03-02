@@ -9,7 +9,8 @@ public class SwitchButtonBehaviour : MonoBehaviour
     private SpriteRenderer buttonSprite;
 
     public GameObject[] walls;
-
+    public GameObject door;
+    public List<GameObject> switching;
 
     // Start is called before the first frame update
     void Start()
@@ -48,12 +49,7 @@ public class SwitchButtonBehaviour : MonoBehaviour
 
     private void changeLevelState()
     {   
-
         foreach (GameObject g in switching)
-
-        foreach (GameObject w in walls)
-
-        foreach (GameObject w in walls)
         {
             //flip state of each one
             g.GetComponent<stateFlip>().Flip(g.GetComponent<stateFlip>().getState());

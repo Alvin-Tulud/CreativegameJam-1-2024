@@ -18,7 +18,7 @@ public class playerMove : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         //left right
         if (Input.GetKey(KeyCode.A))
