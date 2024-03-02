@@ -5,9 +5,9 @@ using UnityEngine;
 public class SwitchButtonBehaviour : MonoBehaviour
 {
     private bool isPushedDown;
-    private GameObject[] walls;
-    private GameObject door;
     private SpriteRenderer buttonSprite;
+
+    public GameObject[] walls;
 
 
     // Start is called before the first frame update
@@ -15,6 +15,8 @@ public class SwitchButtonBehaviour : MonoBehaviour
     {
         isPushedDown = false;
         buttonSprite= gameObject.GetComponent<SpriteRenderer>();
+
+        walls = GameObject.FindGameObjectsWithTag("Wall");
     }
 
     // Update is called once per frame
@@ -31,20 +33,32 @@ public class SwitchButtonBehaviour : MonoBehaviour
     }
     
     //
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.transform.CompareTag("Box"))
         {
             isPushedDown = true;
+            changeLevelState();
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
-        /*if (collision.transform.CompareTag("Box"))
+        if (collision.transform.CompareTag("Box"))
         {
             isPushedDown = false;
         }
-        isPushedDown = false;*/
+    }
+
+    private void changeLevelState()
+    {   
+        GameObject door = GameObject.FindGameObjectWithTag("Door");
+        GameObject[] coins = GameObject.FindGameObjectsWithTag("Coin");
+
+        foreach (GameObject w in walls)
+        {
+            w.GetComponent<OnOffPlatformState>().changePassthroughState();
+        }
+
     }
 }
