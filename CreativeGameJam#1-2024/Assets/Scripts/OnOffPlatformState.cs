@@ -8,6 +8,7 @@ public class OnOffPlatformState : MonoBehaviour
     private SpriteRenderer platformSprite;
     private BoxCollider2D platformCollider;
     private bool currentPlatformState;
+    private stateFlip stateFlip;
 
 
     // Start is called before the first frame update
@@ -16,11 +17,15 @@ public class OnOffPlatformState : MonoBehaviour
         currentPlatformState = initialPlatformState;
         platformSprite = gameObject.GetComponent<SpriteRenderer>();
         platformCollider = gameObject.GetComponent<BoxCollider2D>();
+        stateFlip = GetComponent<stateFlip>();
+        stateFlip.setState(initialPlatformState);
     }
 
     // Update is called once per frame
     void Update()
     {
+        currentPlatformState = stateFlip.getState();
+
         // Determines whether the platform is active or not
         if (currentPlatformState) 
         {
@@ -34,10 +39,5 @@ public class OnOffPlatformState : MonoBehaviour
             platformCollider.enabled = false;
             platformSprite.color = Color.grey;
         }
-    }
-
-    public void changePassthroughState()
-    {
-        currentPlatformState = !currentPlatformState;
     }
 }

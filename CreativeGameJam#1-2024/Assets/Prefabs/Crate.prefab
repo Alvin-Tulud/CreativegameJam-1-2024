@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3833377838093522731}
   - component: {fileID: 4451086637999285585}
   - component: {fileID: 4636774150557983914}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Crate
   m_TagString: Box
   m_Icon: {fileID: 0}
@@ -99,9 +99,9 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_LinearDrag: 2
+  m_AngularDrag: 0
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

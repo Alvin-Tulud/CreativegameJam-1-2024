@@ -7,6 +7,7 @@ public class StartEndDoor : MonoBehaviour
     private bool PlayerTrigger;
     private bool isEnd;
     private SpriteRenderer doorSprite;
+    private stateFlip stateFlip;
 
     // Start is called before the first frame update
     void Start()
@@ -14,11 +15,15 @@ public class StartEndDoor : MonoBehaviour
         PlayerTrigger = false;
         isEnd = false;
         doorSprite = gameObject.GetComponent<SpriteRenderer>();
+        stateFlip = GetComponent<stateFlip>();
+        stateFlip.setState(isEnd);
     }
 
     // Update is called once per frame
     void Update()
     {
+        isEnd = stateFlip.getState();
+
         // Changes color of door depending on if it is an entrance or exit
         if (isEnd)
         {
@@ -30,11 +35,6 @@ public class StartEndDoor : MonoBehaviour
             // ... if it is an entrance, become green
             doorSprite.color = new Color32(72, 140, 64, 255);
         }
-    }
-
-    void changeDoorState()
-    {
-        isEnd = !(isEnd);
     }
 
     // Allows PlayerTrigger to change, only when the door is an exit

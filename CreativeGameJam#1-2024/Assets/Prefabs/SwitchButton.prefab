@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9166266566186465585}
   - component: {fileID: 3047889680612649729}
   - component: {fileID: 5218321840348201181}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SwitchButton
   m_TagString: PSwitch
   m_Icon: {fileID: 0}
@@ -143,3 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 060f6eac04966d244a0854e663243734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walls: []
+  crates: []
+  switching: []

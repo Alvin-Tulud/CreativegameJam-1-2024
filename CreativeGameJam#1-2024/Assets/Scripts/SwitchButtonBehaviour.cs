@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SwitchButtonBehaviour : MonoBehaviour
@@ -8,6 +9,8 @@ public class SwitchButtonBehaviour : MonoBehaviour
     private SpriteRenderer buttonSprite;
 
     public GameObject[] walls;
+    GameObject door;
+    public List<GameObject> switching;
 
 
     // Start is called before the first frame update
@@ -17,6 +20,12 @@ public class SwitchButtonBehaviour : MonoBehaviour
         buttonSprite= gameObject.GetComponent<SpriteRenderer>();
 
         walls = GameObject.FindGameObjectsWithTag("Wall");
+        door = GameObject.FindGameObjectWithTag("Door");
+
+
+        switching.AddRange(walls);
+        switching.Add(door);
+
     }
 
     // Update is called once per frame
@@ -35,29 +44,17 @@ public class SwitchButtonBehaviour : MonoBehaviour
     //
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.transform.CompareTag("Box"))
-        {
-            isPushedDown = true;
-            changeLevelState();
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.transform.CompareTag("Box"))
-        {
-            isPushedDown = false;
-        }
+        changeLevelState();
+        isPushedDown = !isPushedDown;
     }
 
     private void changeLevelState()
     {   
-        GameObject door = GameObject.FindGameObjectWithTag("Door");
-        GameObject[] coins = GameObject.FindGameObjectsWithTag("Coin");
 
-        foreach (GameObject w in walls)
+        foreach (GameObject g in switching)
         {
-            w.GetComponent<OnOffPlatformState>().changePassthroughState();
+            //flip state of each one
+            g.GetComponent<stateFlip>().Flip(g.GetComponent<stateFlip>().getState());
         }
 
     }

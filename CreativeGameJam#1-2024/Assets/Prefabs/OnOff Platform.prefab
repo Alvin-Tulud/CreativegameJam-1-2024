@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 3484671739828456020}
   - component: {fileID: 9190735132646338736}
   - component: {fileID: 5100757469909182083}
-  m_Layer: 0
+  - component: {fileID: 6701483434500733821}
+  m_Layer: 6
   m_Name: OnOff Platform
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -144,3 +145,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialPlatformState: 1
+--- !u!114 &6701483434500733821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6883348488342763587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa8364cbd13e2da4d958f6cf23b81309, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
