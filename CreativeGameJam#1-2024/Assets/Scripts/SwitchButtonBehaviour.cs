@@ -39,13 +39,11 @@ public class SwitchButtonBehaviour : MonoBehaviour
         {
             // Darker Blue color represents pressed down
             //buttonSprite.color = new Color32(32, 67, 144, 255);
-            GetComponent<Animator>().speed = 1f;
-            GetComponent<Animator>().Play("button_push", -1, 0f);
+            GetComponent<Animator>().Play("button_push");
 
         } 
         else
         {
-            GetComponent<Animator>().speed = 0f;
             // Lighter Blue color represents unpressed
             //buttonSprite.color = new Color32(38, 218, 243, 255);
         }

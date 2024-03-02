@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5218321840348201181}
   - component: {fileID: 2340386202247478914}
   m_Layer: 8
-  m_Name: SwitchButton
+  m_Name: OnOffBlockButton
   m_TagString: PSwitch
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -144,9 +144,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 060f6eac04966d244a0854e663243734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walls: []
-  door: {fileID: 0}
-  switching: []
+  switchableElements: []
 --- !u!95 &2340386202247478914
 Animator:
   serializedVersion: 5
