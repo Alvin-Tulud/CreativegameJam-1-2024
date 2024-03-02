@@ -11,7 +11,6 @@ public class worldMove : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        rb.gravityScale = 0;
     }
 
     // Update is called once per frame
