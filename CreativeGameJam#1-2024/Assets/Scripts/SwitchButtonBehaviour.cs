@@ -6,7 +6,7 @@ using UnityEngine;
 public class SwitchButtonBehaviour : MonoBehaviour
 {
     private bool isPushedDown;
-    private SpriteRenderer buttonSprite;
+    private Animator spriteAnimator;
 
     public List<GameObject> switchableElements;
 
@@ -14,7 +14,7 @@ public class SwitchButtonBehaviour : MonoBehaviour
     void Start()
     {
         isPushedDown = false;
-        buttonSprite= gameObject.GetComponent<SpriteRenderer>();
+        spriteAnimator = GetComponent<Animator>();
 
         // Gather all elements that have the ability to be switched
         setListOfSwitchableElements(new string[] {"Wall","Door"});
@@ -35,20 +35,7 @@ public class SwitchButtonBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isPushedDown)
-        {
-            // Darker Blue color represents pressed down
-            //buttonSprite.color = new Color32(32, 67, 144, 255);
-            GetComponent<Animator>().speed = 1f;
-            GetComponent<Animator>().Play("button_push", -1, 0f);
-
-        } 
-        else
-        {
-            GetComponent<Animator>().speed = 0f;
-            // Lighter Blue color represents unpressed
-            //buttonSprite.color = new Color32(38, 218, 243, 255);
-        }
+        spriteAnimator.SetBool("isPushed",isPushedDown);
     }
     
     //
