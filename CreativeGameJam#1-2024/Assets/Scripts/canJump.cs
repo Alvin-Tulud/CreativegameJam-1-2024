@@ -9,24 +9,18 @@ public class canJump : MonoBehaviour
     bool canJumpNow;
     public LayerMask jumpableSurface;
 
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
         RaycastHit2D hit;
-        hit = Physics2D.Raycast(transform.position, Vector2.down, 1f, jumpableSurface);
-        Debug.Log(hit.transform.name);
-        if (hit.transform.CompareTag("Wall"))
-        {
-            canJumpNow = true;
-        }
-        else
+        hit = Physics2D.Raycast(transform.position, Vector2.down, 0.6f, jumpableSurface);
+        if(!hit)
         {
             canJumpNow = false;
+        }
+        else if (hit.transform.CompareTag("Wall"))
+        {
+            canJumpNow = true;
         }
     }
 

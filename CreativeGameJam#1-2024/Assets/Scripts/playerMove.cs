@@ -18,16 +18,16 @@ public class playerMove : MonoBehaviour
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         //left right
         if (Input.GetKey(KeyCode.A))
         {
-            rb.velocity = speed * Vector2.left;
+            rb.AddForce(-transform.right * speed,ForceMode2D.Force);
         }
         else if(Input.GetKey(KeyCode.D))
         {
-            rb.velocity = speed * Vector2.right;
+            rb.AddForce(transform.right *  speed,ForceMode2D.Force);
         }
 
         //jumping
