@@ -11,11 +11,17 @@ public class switchControls : MonoBehaviour
 
 
     public GameObject mainCamera;
+    Vector3 cameraEndPosition;
+    Vector3 cameraStartPosition;
+    Vector3 cameraCurrentPosition;
     float cameraMax;
     float cameraMin;
     float cameraCurrentSize;
     float time;
     public float speed;
+
+
+    public GameObject door;
 
     // Start is called before the first frame update
     void Start()
@@ -27,9 +33,12 @@ public class switchControls : MonoBehaviour
 
 
         mainCamera = GameObject.FindWithTag("MainCamera");
+        cameraStartPosition = mainCamera.transform.position;
         cameraMax = 12f;
         cameraMin = 5f;
         time = 0f;
+
+        door = GameObject.FindWithTag("Door");
     }
 
     // Update is called once per frame
@@ -43,13 +52,24 @@ public class switchControls : MonoBehaviour
 
                 mainCamera.GetComponent<Camera>().orthographicSize = cameraCurrentSize;
 
+
+                cameraCurrentPosition.x = Mathf.Lerp(cameraStartPosition.x, cameraEndPosition.x, time / speed);
+                cameraCurrentPosition.y = Mathf.Lerp(cameraStartPosition.y, cameraEndPosition.y, time / speed);
+                cameraCurrentPosition.z = -10f;
+
+                mainCamera.transform.position = cameraCurrentPosition;
+
+
                 time++;
             }
             else
             {
+                time = 0f;
+
                 mainCamera.GetComponent<Camera>().orthographicSize = cameraMax;
 
-                time = 0f;
+                mainCamera.transform.position = new Vector3(cameraEndPosition.x,cameraEndPosition.y, -10f);
+
 
                 player.GetComponent<playerMove>().enabled = false;
                 player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
@@ -58,6 +78,9 @@ public class switchControls : MonoBehaviour
                 world.GetComponent<worldMove>().enabled = true;
                 world.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
             }
+
+
+            door.GetComponent<stateFlip>().setState(true);
         }
 
         if(playerControl)
@@ -68,13 +91,24 @@ public class switchControls : MonoBehaviour
 
                 mainCamera.GetComponent<Camera>().orthographicSize = cameraCurrentSize;
 
+
+                cameraCurrentPosition.x = Mathf.Lerp(cameraStartPosition.x, cameraEndPosition.x, time / speed);
+                cameraCurrentPosition.y = Mathf.Lerp(cameraStartPosition.y, cameraEndPosition.y, time / speed);
+                cameraCurrentPosition.z = -10f;
+
+                mainCamera.transform.position = cameraCurrentPosition;
+
+
                 time++;
             }
             else
             {
+                time = 0f;
+
                 mainCamera.GetComponent<Camera>().orthographicSize = cameraMin;
 
-                time = 0f;
+                mainCamera.transform.position = new Vector3(cameraEndPosition.x, cameraEndPosition.y, -10f);
+
 
                 player.GetComponent<playerMove>().enabled = true;
                 player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
@@ -83,6 +117,9 @@ public class switchControls : MonoBehaviour
                 world.GetComponent<worldMove>().enabled = false;
                 world.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
             }
+
+
+            door.GetComponent<stateFlip>().setState(false);
         }
     }
 
@@ -91,11 +128,15 @@ public class switchControls : MonoBehaviour
         playerControl = !playerControl;
         worldControl = !worldControl;
 
+
         player.GetComponent<playerMove>().enabled = false;
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
 
 
         world.GetComponent<worldMove>().enabled = false;
         world.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+
+
+        cameraEndPosition = world.transform.position;
     }
 }

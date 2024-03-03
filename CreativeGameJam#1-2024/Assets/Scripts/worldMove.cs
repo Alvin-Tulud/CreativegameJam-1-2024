@@ -16,9 +16,6 @@ public class worldMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        rb.velocity = Vector2.zero;
-
-
         if (Input.GetKey(KeyCode.A))
         {
             rb.MovePosition(transform.position + -transform.right * speed);
