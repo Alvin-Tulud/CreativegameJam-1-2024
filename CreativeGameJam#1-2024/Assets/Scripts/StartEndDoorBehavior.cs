@@ -25,23 +25,28 @@ public class StartEndDoor : MonoBehaviour
         isExit = GetComponent<stateFlip>();
         isExit.setState(false);
 
+        //Defines the animator and sets the door to be closed
+        animator = gameObject.GetComponent<Animator>();
         ChangeAnimationState(DOOR_CLOSED);
     }
 
     // Update is called once per frame
     void Update()
     {
+
         // Changes color of door depending on if it is an entrance or exit
+        //No longer necessary, uncomment to debug
+        /*
         if (isExit.getState())
         {
             // ... if it is an exit, become red
-            //doorSprite.color = new Color32(140, 65, 70, 255);
+            doorSprite.color = new Color32(140, 65, 70, 255);
         } 
         else
         {
             // ... if it is an entrance, become green
-            //doorSprite.color = new Color32(72, 140, 64, 255);
-        }
+            doorSprite.color = new Color32(72, 140, 64, 255);
+        }*/
     }
 
     // Allows PlayerTrigger to change, only when the door is an exit
@@ -56,7 +61,7 @@ public class StartEndDoor : MonoBehaviour
 
     //Animation related
     //Code source: https://www.youtube.com/watch?v=53Yx8C5s05c
-    private void ChangeAnimationState(string newState)
+    public void ChangeAnimationState(string newState)
     {
         if (newState == currentState)
         {

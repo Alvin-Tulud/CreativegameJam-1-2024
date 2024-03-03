@@ -163,6 +163,16 @@ public class switchControls : MonoBehaviour
         cameraEndPosition = world.transform.position;
 
         ChangeAnimationState(BUTTON_PRESS);
+
+        StartEndDoor doorScript = door.GetComponent<StartEndDoor>();
+        if(playerControl)
+        {
+            doorScript.ChangeAnimationState("Door_Closing");
+        }
+        else
+        {
+            doorScript.ChangeAnimationState("Door_Opening");
+        }
     }
 
     //When the player leaves the button:
