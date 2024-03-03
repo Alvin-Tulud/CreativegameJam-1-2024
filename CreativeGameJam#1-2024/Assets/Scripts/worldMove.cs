@@ -16,21 +16,28 @@ public class worldMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        int xMovement = 0;
+        int yMovement = 0;
+
+
         if (Input.GetKey(KeyCode.A))
         {
-            rb.MovePosition(transform.position + -transform.right * speed);
+            xMovement = -1;
         }
         else if (Input.GetKey(KeyCode.D))
         {
-            rb.MovePosition(transform.position + transform.right * speed);
+            xMovement = 1;
         }
-        else if (Input.GetKey(KeyCode.W) ||  Input.GetKey(KeyCode.Space))
+
+        if (Input.GetKey(KeyCode.W) ||  Input.GetKey(KeyCode.Space))
         {
-            rb.MovePosition(transform.position + transform.up * speed);
+            yMovement = 1; 
         }
         else if (Input.GetKey(KeyCode.S))
         {
-            rb.MovePosition(transform.position + -transform.up * speed);
+            yMovement = -1;
         }
+        
+        rb.MovePosition(new Vector2(transform.position.x + (speed * xMovement), transform.position.y + (speed * yMovement)));
     }
 }
