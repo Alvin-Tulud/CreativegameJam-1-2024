@@ -23,9 +23,6 @@ public class switchControls : MonoBehaviour
 
     public GameObject door;
 
-
-    private ParticleSystem ps;
-
     //Animation related
     //Code source: https://www.youtube.com/watch?v=53Yx8C5s05c
     Animator animator;
@@ -167,15 +164,14 @@ public class switchControls : MonoBehaviour
 
         ChangeAnimationState(BUTTON_PRESS);
 
-        //im pretty sure these are inverted but this is a game jam and not a bierman assignment
         StartEndDoor doorScript = door.GetComponent<StartEndDoor>();
         if(playerControl)
         {
-            doorScript.ChangeAnimationState("Door_Opening");
+            doorScript.ChangeAnimationState("Door_Closing");
         }
         else
         {
-            doorScript.ChangeAnimationState("Door_Closing");
+            doorScript.ChangeAnimationState("Door_Opening");
         }
     }
 
