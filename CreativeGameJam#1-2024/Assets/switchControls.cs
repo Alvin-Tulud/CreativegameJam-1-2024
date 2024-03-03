@@ -163,6 +163,17 @@ public class switchControls : MonoBehaviour
         cameraEndPosition = world.transform.position;
 
         ChangeAnimationState(BUTTON_PRESS);
+
+        //im pretty sure these are inverted but this is a game jam and not a bierman assignment
+        StartEndDoor doorScript = door.GetComponent<StartEndDoor>();
+        if(playerControl)
+        {
+            doorScript.ChangeAnimationState("Door_Opening");
+        }
+        else
+        {
+            doorScript.ChangeAnimationState("Door_Closing");
+        }
     }
 
     //When the player leaves the button:
