@@ -23,6 +23,9 @@ public class switchControls : MonoBehaviour
 
     public GameObject door;
 
+
+    private ParticleSystem ps;
+
     //Animation related
     //Code source: https://www.youtube.com/watch?v=53Yx8C5s05c
     Animator animator;

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 
 public class StartEndDoor : MonoBehaviour
@@ -17,6 +18,9 @@ public class StartEndDoor : MonoBehaviour
     const string DOOR_OPENING = "Door_Opening";
     const string DOOR_CLOSING = "Door_Closing";
 
+
+    private ParticleSystem ps;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,25 +32,17 @@ public class StartEndDoor : MonoBehaviour
         //Defines the animator and sets the door to be closed
         animator = gameObject.GetComponent<Animator>();
         ChangeAnimationState(DOOR_CLOSED);
+
+
+        ps = GetComponent<ParticleSystem>();
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        // Changes color of door depending on if it is an entrance or exit
-        //No longer necessary, uncomment to debug
-        /*
-        if (isExit.getState())
-        {
-            // ... if it is an exit, become red
-            doorSprite.color = new Color32(140, 65, 70, 255);
-        } 
-        else
-        {
-            // ... if it is an entrance, become green
-            doorSprite.color = new Color32(72, 140, 64, 255);
-        }*/
+        var emission = ps.emission;
+        emission.enabled = isExit.getState();
     }
 
     // Allows PlayerTrigger to change, only when the door is an exit
