@@ -24,8 +24,8 @@ public class coinSwitch : MonoBehaviour
         isPushedDown = false;
         buttonSprite = gameObject.GetComponent<SpriteRenderer>();
 
+        //Defines the animator and sets the button to unpressed position
         animator = gameObject.GetComponent<Animator>();
-
         ChangeAnimationState(BUTTON_UP);
     }
 
