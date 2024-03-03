@@ -24,12 +24,12 @@ public class StartEndDoor : MonoBehaviour
         if (isExit.getState())
         {
             // ... if it is an exit, become red
-            doorSprite.color = new Color32(140, 65, 70, 255);
+            //doorSprite.color = new Color32(140, 65, 70, 255);
         } 
         else
         {
             // ... if it is an entrance, become green
-            doorSprite.color = new Color32(72, 140, 64, 255);
+            //doorSprite.color = new Color32(72, 140, 64, 255);
         }
     }
 
