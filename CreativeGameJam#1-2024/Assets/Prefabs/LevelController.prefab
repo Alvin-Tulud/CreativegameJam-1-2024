@@ -91,10 +91,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Entrance_Exit Door
       objectReference: {fileID: 0}
-    - target: {fileID: 3471848624233142340, guid: 95e5f2733b5728d4ca59b86a3e55acd3, type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 9095434104276966062, guid: 95e5f2733b5728d4ca59b86a3e55acd3, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4
