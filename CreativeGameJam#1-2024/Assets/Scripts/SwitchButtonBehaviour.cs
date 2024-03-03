@@ -14,10 +14,10 @@ public class SwitchButtonBehaviour : MonoBehaviour
     //Code source: https://www.youtube.com/watch?v=53Yx8C5s05c
     Animator animator;
     string currentState;
-    const string BUTTON_DOWN = "Button_Down";
-    const string BUTTON_UP = "Button_Up";
-    const string BUTTON_PRESS = "Button_Press";
-    const string BUTTON_RELEASE = "Button_Release";
+    const string BUTTON_DOWN = "OFButton_Down";
+    const string BUTTON_UP = "OFButton_Up";
+    const string BUTTON_PRESS = "OFButton_Press";
+    const string BUTTON_RELEASE = "OFButton_Release";
 
     // Start is called before the first frame update
     void Start()
