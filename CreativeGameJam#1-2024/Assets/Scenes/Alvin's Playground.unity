@@ -174,7 +174,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_BackGroundColor: {r: 0.42352942, g: 0.45490196, b: 0.5411765, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -288,22 +288,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 899262857849901674, guid: 6999ff3afb1f48446a69b50eb5a8e67e, type: 3}
-      propertyPath: m_Size.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 899262857849901674, guid: 6999ff3afb1f48446a69b50eb5a8e67e, type: 3}
-      propertyPath: m_Size.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3167943462094632795, guid: 6999ff3afb1f48446a69b50eb5a8e67e, type: 3}
-      propertyPath: m_Interpolate
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3167943462094632795, guid: 6999ff3afb1f48446a69b50eb5a8e67e, type: 3}
-      propertyPath: m_CollisionDetection
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 694775868512058402, guid: 6999ff3afb1f48446a69b50eb5a8e67e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d476106570d0424e864f5377fd0796e, type: 3}
     - target: {fileID: 5497959800688978733, guid: 6999ff3afb1f48446a69b50eb5a8e67e, type: 3}
       propertyPath: m_Name
       value: Player
@@ -348,6 +336,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9048708982764607196, guid: 6999ff3afb1f48446a69b50eb5a8e67e, type: 3}
+      propertyPath: states.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9048708982764607196, guid: 6999ff3afb1f48446a69b50eb5a8e67e, type: 3}
+      propertyPath: states.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 7d51c558cc025324ea1b31d4c6daa43c, type: 3}
+    - target: {fileID: 9048708982764607196, guid: 6999ff3afb1f48446a69b50eb5a8e67e, type: 3}
+      propertyPath: states.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 6d476106570d0424e864f5377fd0796e, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

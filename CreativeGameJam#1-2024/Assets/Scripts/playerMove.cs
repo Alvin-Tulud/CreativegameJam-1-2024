@@ -13,6 +13,8 @@ public class playerMove : MonoBehaviour
     public float speed;
     public LayerMask jumpableSurface;
 
+    public Sprite[] states;
+
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -43,10 +45,12 @@ public class playerMove : MonoBehaviour
         else if (Input.GetKey(KeyCode.A))
         {
             rb.velocity = new Vector2(-speed, rb.velocity.y);
+            transform.rotation = Quaternion.Euler(0, 180, 0);
         }
         else if(Input.GetKey(KeyCode.D))
         {
             rb.velocity = new Vector2(speed, rb.velocity.y);
+            transform.rotation = Quaternion.Euler(0, 0, 0);
         } 
 
 
@@ -57,6 +61,16 @@ public class playerMove : MonoBehaviour
             {
                 rb.AddForce(transform.up * jumpForce, ForceMode2D.Impulse);
             }
+        }
+
+
+        if(rb.velocity.magnitude == 0)
+        {
+            GetComponent<SpriteRenderer>().sprite = states[0];
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().sprite = states[1];
         }
     }
 }
