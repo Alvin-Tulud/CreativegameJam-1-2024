@@ -18,7 +18,7 @@ public class SwitchButtonBehaviour : MonoBehaviour
         spriteAnimator.SetBool("isPushed", isPushedDown);
 
         // Gather all elements that have the ability to be switched
-        setListOfSwitchableElements(new string[] {"Wall","Door"});
+        setListOfSwitchableElements(new string[] {"Wall"});
         
     }
 
