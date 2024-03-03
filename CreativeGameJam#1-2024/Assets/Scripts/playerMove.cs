@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class playerMove : MonoBehaviour
 {
@@ -23,28 +24,34 @@ public class playerMove : MonoBehaviour
         //ground dectection
         RaycastHit2D hit;
         hit = Physics2D.Raycast(transform.position, Vector2.down, 0.6f, jumpableSurface);
-        if (!hit)
+        if(!hit)
         {
             canJumpNow = false;
-        }
-        else
+
+        } else
         {
             canJumpNow = true;
         }
 
 
         //left right
-        if (Input.GetKey(KeyCode.A))
+        Vector2 horizontalMovement = Vector2.zero;
+        if (Input.GetKey(KeyCode.A) && Input.GetKey(KeyCode.D))
         {
-            rb.velocity = -transform.right * speed;
+            rb.velocity = new Vector2(0, rb.velocity.y);
+        }
+        else if (Input.GetKey(KeyCode.A))
+        {
+            rb.velocity = new Vector2(-speed, rb.velocity.y);
         }
         else if(Input.GetKey(KeyCode.D))
         {
-            rb.velocity = transform.right * speed;
-        }
+            rb.velocity = new Vector2(speed, rb.velocity.y);
+        } 
+
 
         //jumping
-        if(Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.Space))
         {
             if (canJumpNow)
             {
