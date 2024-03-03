@@ -19,6 +19,9 @@ public class SwitchButtonBehaviour : MonoBehaviour
     const string BUTTON_PRESS = "OFButton_Press";
     const string BUTTON_RELEASE = "OFButton_Release";
 
+
+    AudioSource buttonSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +37,8 @@ public class SwitchButtonBehaviour : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         ChangeAnimationState(BUTTON_UP);
 
+
+        buttonSound = gameObject.GetComponent<AudioSource>();
     }
 
     // Allows for a collection of switchable elements using an array of strings, representing the tags assigned to each of the elements.
@@ -59,7 +64,9 @@ public class SwitchButtonBehaviour : MonoBehaviour
         changeLevelState();
         isPushedDown = !isPushedDown;
         ChangeAnimationState(BUTTON_PRESS);
-        
+
+
+        buttonSound.Play();
     }
 
     //(Copied from coinSwitch.cs)

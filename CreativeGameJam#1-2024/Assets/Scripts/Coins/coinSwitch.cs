@@ -18,6 +18,9 @@ public class coinSwitch : MonoBehaviour
     const string BUTTON_PRESS = "Button_Press";
     const string BUTTON_RELEASE = "Button_Release";
 
+
+    AudioSource buttonSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +30,9 @@ public class coinSwitch : MonoBehaviour
         //Defines the animator and sets the button to unpressed position
         animator = gameObject.GetComponent<Animator>();
         ChangeAnimationState(BUTTON_UP);
+
+
+        buttonSound = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -51,6 +57,9 @@ public class coinSwitch : MonoBehaviour
         {
             buttonSprite.color = new Color32(38, 218, 243, 255);
         }*/
+
+
+        buttonSound.Play();
     }
 
     //When the player leaves the button:

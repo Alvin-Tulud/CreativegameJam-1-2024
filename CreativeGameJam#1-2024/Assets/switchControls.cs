@@ -32,6 +32,9 @@ public class switchControls : MonoBehaviour
     const string BUTTON_PRESS = "PButton_Press";
     const string BUTTON_RELEASE = "PButton_Release";
 
+
+    AudioSource buttonSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -52,6 +55,9 @@ public class switchControls : MonoBehaviour
         //Defines the animator and sets the button to unpressed position
         animator = gameObject.GetComponent<Animator>();
         ChangeAnimationState(BUTTON_UP);
+
+
+        buttonSound = gameObject.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -173,6 +179,9 @@ public class switchControls : MonoBehaviour
         {
             doorScript.ChangeAnimationState("Door_Opening");
         }
+
+
+        buttonSound.Play();
     }
 
     //When the player leaves the button:

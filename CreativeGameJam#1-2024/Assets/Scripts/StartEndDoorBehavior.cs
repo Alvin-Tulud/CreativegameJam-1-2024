@@ -21,6 +21,10 @@ public class StartEndDoor : MonoBehaviour
 
     private ParticleSystem ps;
 
+
+    AudioSource doorSound;
+    public AudioClip[] opencloseDoorSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,14 +39,21 @@ public class StartEndDoor : MonoBehaviour
 
 
         ps = GetComponent<ParticleSystem>();
+
+
+        doorSound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-
         var emission = ps.emission;
         emission.enabled = isExit.getState();
+
+        if(isExit.getState())
+        {
+
+        }
     }
 
     // Allows PlayerTrigger to change, only when the door is an exit
@@ -67,5 +78,17 @@ public class StartEndDoor : MonoBehaviour
         animator.Play(newState);
 
         currentState = newState;
+
+
+        if (newState.CompareTo(DOOR_OPENING) == 0)
+        {
+            doorSound.clip = opencloseDoorSound[0];
+            doorSound.Play();
+        }
+        else if (newState.CompareTo(DOOR_CLOSING) == 0)
+        {
+            doorSound.clip = opencloseDoorSound[1];
+            doorSound.Play();
+        }
     }
 }
