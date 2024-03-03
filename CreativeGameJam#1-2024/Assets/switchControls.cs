@@ -6,9 +6,11 @@ public class switchControls : MonoBehaviour
 {
     public GameObject world;
     public GameObject player;
-    public GameObject mainCamera;
     bool worldControl;
     bool playerControl;
+
+
+    public GameObject mainCamera;
     float cameraMax;
     float cameraMin;
     float cameraCurrentSize;
@@ -20,9 +22,11 @@ public class switchControls : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
         world = GameObject.FindWithTag("World");
-        mainCamera = GameObject.FindWithTag("MainCamera");
         playerControl = true;
         worldControl = false;
+
+
+        mainCamera = GameObject.FindWithTag("MainCamera");
         cameraMax = 12f;
         cameraMin = 5f;
         time = 0f;
