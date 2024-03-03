@@ -8,6 +8,15 @@ public class StartEndDoor : MonoBehaviour
     private SpriteRenderer doorSprite;
     private stateFlip isExit;
 
+    //Animation related
+    //Code source: https://www.youtube.com/watch?v=53Yx8C5s05c
+    Animator animator;
+    string currentState;
+    const string DOOR_OPEN = "Door_Open";
+    const string DOOR_CLOSED = "Door_Closed";
+    const string DOOR_OPENING = "Door_Opening";
+    const string DOOR_CLOSING = "Door_Closing";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +24,8 @@ public class StartEndDoor : MonoBehaviour
         doorSprite = gameObject.GetComponent<SpriteRenderer>();
         isExit = GetComponent<stateFlip>();
         isExit.setState(false);
+
+        ChangeAnimationState(DOOR_CLOSED);
     }
 
     // Update is called once per frame
@@ -42,4 +53,18 @@ public class StartEndDoor : MonoBehaviour
         }
     }
     public bool getPlayerTrigger() { return playerInDoor; }
+
+    //Animation related
+    //Code source: https://www.youtube.com/watch?v=53Yx8C5s05c
+    private void ChangeAnimationState(string newState)
+    {
+        if (newState == currentState)
+        {
+            return;
+        }
+
+        animator.Play(newState);
+
+        currentState = newState;
+    }
 }
