@@ -3,7 +3,17 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Wall
+  - State_Button
+  - Coin
+  - PSwitch
+  - Box
+  - Killzone
+  - CoinBlock
+  - Door
+  - SafeWall
+  - World
   layers:
   - Default
   - TransparentFX
@@ -11,12 +21,12 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Wall
+  - Player
+  - Button
+  - Coin
+  - Box
+  - Door
   - 
   - 
   - 
