@@ -23,6 +23,15 @@ public class switchControls : MonoBehaviour
 
     public GameObject door;
 
+    //Animation related
+    //Code source: https://www.youtube.com/watch?v=53Yx8C5s05c
+    Animator animator;
+    string currentState;
+    const string BUTTON_DOWN = "PButton_Down";
+    const string BUTTON_UP = "PButton_Up";
+    const string BUTTON_PRESS = "PButton_Press";
+    const string BUTTON_RELEASE = "PButton_Release";
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +48,10 @@ public class switchControls : MonoBehaviour
         time = 0f;
 
         door = GameObject.FindWithTag("Door");
+
+        //Defines the animator and sets the button to unpressed position
+        animator = gameObject.GetComponent<Animator>();
+        ChangeAnimationState(BUTTON_UP);
     }
 
     // Update is called once per frame
@@ -148,5 +161,49 @@ public class switchControls : MonoBehaviour
         world.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
 
         cameraEndPosition = world.transform.position;
+
+        ChangeAnimationState(BUTTON_PRESS);
+    }
+
+    //When the player leaves the button:
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        //Release button animation:
+        //Disable collider
+        BoxCollider2D switchCollider = gameObject.GetComponent<BoxCollider2D>();
+        switchCollider.enabled = false;
+
+        //Wait a few seconds
+        //Enable collider
+        StartCoroutine(ButtonRelease(switchCollider));
+    }
+
+    //(Copied from coinSwitch.cs)
+    //Releases the button: After a few seconds, reenables collider + plays release animation
+    //Takes the box collider as a parameter so I don't have to redeclare
+    IEnumerator ButtonRelease(BoxCollider2D switchCollider)
+    {
+        //The delay before the button is released:
+        yield return new WaitForSeconds(0.8f);
+
+        //Release animation
+        ChangeAnimationState(BUTTON_RELEASE);
+
+        //Reenable collider so the button can be pressed again
+        switchCollider.enabled = true;
+    }
+
+    //Animation related
+    //Code source: https://www.youtube.com/watch?v=53Yx8C5s05c
+    private void ChangeAnimationState(string newState)
+    {
+        if (newState == currentState)
+        {
+            return;
+        }
+
+        animator.Play(newState);
+
+        currentState = newState;
     }
 }
