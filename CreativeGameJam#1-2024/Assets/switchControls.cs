@@ -46,6 +46,8 @@ public class switchControls : MonoBehaviour
     {
         if (worldControl)
         {
+
+            //move camera and change size
             if (mainCamera.GetComponent<Camera>().orthographicSize != cameraMax)
             {
                 cameraCurrentSize = Mathf.Lerp(cameraMin, cameraMax, time / speed);
@@ -64,6 +66,7 @@ public class switchControls : MonoBehaviour
             }
             else
             {
+                //set final destination and size of camera
                 time = 0f;
 
                 mainCamera.GetComponent<Camera>().orthographicSize = cameraMax;
@@ -71,6 +74,7 @@ public class switchControls : MonoBehaviour
                 mainCamera.transform.position = new Vector3(cameraEndPosition.x,cameraEndPosition.y, -10f);
 
 
+                //set player off and world on
                 player.GetComponent<playerMove>().enabled = false;
                 player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
 
@@ -85,6 +89,8 @@ public class switchControls : MonoBehaviour
 
         if(playerControl)
         {
+
+            //move camera and change size
             if (mainCamera.GetComponent<Camera>().orthographicSize != cameraMin)
             {
                 cameraCurrentSize = Mathf.Lerp(cameraMax, cameraMin, time / speed);
@@ -103,6 +109,7 @@ public class switchControls : MonoBehaviour
             }
             else
             {
+                //set final destination and size of camera
                 time = 0f;
 
                 mainCamera.GetComponent<Camera>().orthographicSize = cameraMin;
@@ -110,6 +117,7 @@ public class switchControls : MonoBehaviour
                 mainCamera.transform.position = new Vector3(cameraEndPosition.x, cameraEndPosition.y, -10f);
 
 
+                //set player on and world off
                 player.GetComponent<playerMove>().enabled = true;
                 player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
 
@@ -129,13 +137,13 @@ public class switchControls : MonoBehaviour
         worldControl = !worldControl;
 
 
-        player.GetComponent<playerMove>().enabled = false;
+        /*player.GetComponent<playerMove>().enabled = false;
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
 
 
         world.GetComponent<worldMove>().enabled = false;
         world.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-
+        */
 
         cameraEndPosition = world.transform.position;
     }
