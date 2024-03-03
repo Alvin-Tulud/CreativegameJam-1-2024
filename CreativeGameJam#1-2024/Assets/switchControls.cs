@@ -77,6 +77,7 @@ public class switchControls : MonoBehaviour
                 //set player off and world on
                 player.GetComponent<playerMove>().enabled = false;
                 player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+                player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
 
 
                 world.GetComponent<worldMove>().enabled = true;
@@ -120,6 +121,7 @@ public class switchControls : MonoBehaviour
                 //set player on and world off
                 player.GetComponent<playerMove>().enabled = true;
                 player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
+                player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
 
 
                 world.GetComponent<worldMove>().enabled = false;
@@ -139,6 +141,7 @@ public class switchControls : MonoBehaviour
 
         player.GetComponent<playerMove>().enabled = false;
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
+        player.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
 
 
         world.GetComponent<worldMove>().enabled = false;
