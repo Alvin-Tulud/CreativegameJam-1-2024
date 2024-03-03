@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7826634061083299489}
   - component: {fileID: 6261462421456868869}
   - component: {fileID: 6394967052680367089}
+  - component: {fileID: 8281512703998980445}
   m_Layer: 11
   m_Name: Entrance_Exit Door
   m_TagString: Door
@@ -156,3 +157,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa8364cbd13e2da4d958f6cf23b81309, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &8281512703998980445
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814745951037758086}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bd455a820d870dc44968062c5aaa5e3c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
