@@ -137,13 +137,12 @@ public class switchControls : MonoBehaviour
         worldControl = !worldControl;
 
 
-        /*player.GetComponent<playerMove>().enabled = false;
+        player.GetComponent<playerMove>().enabled = false;
         player.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
 
 
         world.GetComponent<worldMove>().enabled = false;
         world.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
-        */
 
         cameraEndPosition = world.transform.position;
     }
