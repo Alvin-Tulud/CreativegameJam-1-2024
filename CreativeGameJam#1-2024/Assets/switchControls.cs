@@ -164,14 +164,15 @@ public class switchControls : MonoBehaviour
 
         ChangeAnimationState(BUTTON_PRESS);
 
+        //im pretty sure these are inverted but this is a game jam and not a bierman assignment
         StartEndDoor doorScript = door.GetComponent<StartEndDoor>();
         if(playerControl)
         {
-            doorScript.ChangeAnimationState("Door_Closing");
+            doorScript.ChangeAnimationState("Door_Opening");
         }
         else
         {
-            doorScript.ChangeAnimationState("Door_Opening");
+            doorScript.ChangeAnimationState("Door_Closing");
         }
     }
 
