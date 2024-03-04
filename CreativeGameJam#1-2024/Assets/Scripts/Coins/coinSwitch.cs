@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class coinSwitch : MonoBehaviour
 {
-    private bool isPushedDown;              
+    public bool isPushedDown;
     private SpriteRenderer buttonSprite;
+    BoxCollider2D switchCollider;
 
     public GameObject[] coins;              //Holds the list of coins in the scene for the switch to affect
+    public GameObject[] coinSwitches;       //Holds the list of other switches to flipflop with this one
 
     //Animation related
     //Code source: https://www.youtube.com/watch?v=53Yx8C5s05c
@@ -24,12 +26,23 @@ public class coinSwitch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        isPushedDown = false;
         buttonSprite = gameObject.GetComponent<SpriteRenderer>();
+        switchCollider = gameObject.GetComponent<BoxCollider2D>();  //Collider to disable/enable
 
-        //Defines the animator and sets the button to unpressed position
+        coinSwitches = GameObject.FindGameObjectsWithTag("CoinSwitch");
+
+
+        //Defines the animator and sets the button to starting position
         animator = gameObject.GetComponent<Animator>();
-        ChangeAnimationState(BUTTON_UP);
+        if (isPushedDown)
+        {
+            ChangeAnimationState(BUTTON_DOWN);
+        }
+        else
+        {
+            ChangeAnimationState(BUTTON_UP);
+        }
+
 
 
         buttonSound = gameObject.GetComponent<AudioSource>();
@@ -38,55 +51,71 @@ public class coinSwitch : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     //When the button is pressed:
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        FlipCoins();
-        isPushedDown = !isPushedDown;
-        ChangeAnimationState(BUTTON_PRESS);
-
-        /*Changes color depending on flip status. Uncomment to use for debugging
-        if (isPushedDown)
+        //Unpress all pressed buttons, press all unpressed buttons
+        foreach (GameObject w in coinSwitches)
         {
-            buttonSprite.color = new Color32(32, 67, 144, 255);
+            coinSwitch s = w.GetComponent<coinSwitch>();
+            if(s.isPushedDown == true)
+            {   //Unpress if pressed
+                w.GetComponent<coinSwitch>().UnpressButton();
+            }
+            else
+            {   //Press if unpressed
+                w.GetComponent<coinSwitch>().PressButton();
+            }
+            
         }
-        else
-        {
-            buttonSprite.color = new Color32(38, 218, 243, 255);
-        }*/
 
-
+        //Effect and sound can't be in the press function or all the buttons will play it
+        FlipCoins();
         buttonSound.Play();
+
+
     }
 
-    //When the player leaves the button:
-    private void OnTriggerExit2D(Collider2D collision)
+    //Presses down the button and disables until unpressed
+    private void PressButton()
+    {
+        isPushedDown = !isPushedDown;
+        ChangeAnimationState(BUTTON_PRESS);
+        switchCollider.enabled = false;
+    }
+
+    
+    private void UnpressButton()
     {
         //Release button animation:
         //Disable collider
-        BoxCollider2D switchCollider = gameObject.GetComponent<BoxCollider2D>();
-        switchCollider.enabled = false;
-
-        //Wait a few seconds
-        //Enable collider
-        StartCoroutine(ButtonRelease(switchCollider));
+        if(isPushedDown)
+        {
+            isPushedDown = false;
+            StartCoroutine(ButtonRelease(switchCollider));
+        }
+        else
+        {
+            Debug.Log("A coinSwitch is trying to unpress a button not currently pushed down (should only trigger once per press)");
+        }
     }
 
-    //Releases the button: After a few seconds, reenables collider + plays release animation
+    //Releases the button: reenables collider + plays release animation
     //Takes the box collider as a parameter so I don't have to redeclare
     IEnumerator ButtonRelease(BoxCollider2D switchCollider)
     {
-        //The delay before the button is released:
-        yield return new WaitForSeconds(0.8f);
-
         //Release animation
         ChangeAnimationState(BUTTON_RELEASE);
 
+        //The delay before the button is pressable:
+        //yield return new WaitForSeconds(0.8f);
+
         //Reenable collider so the button can be pressed again
         switchCollider.enabled = true;
+        yield return null;
     }
 
     private void FlipCoins()
