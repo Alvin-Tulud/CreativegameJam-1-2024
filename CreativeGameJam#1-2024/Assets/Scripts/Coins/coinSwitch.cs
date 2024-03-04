@@ -29,6 +29,7 @@ public class coinSwitch : MonoBehaviour
         buttonSprite = gameObject.GetComponent<SpriteRenderer>();
         switchCollider = gameObject.GetComponent<BoxCollider2D>();  //Collider to disable/enable
 
+        //Gather all other coinSwitches to flip with this one
         coinSwitches = GameObject.FindGameObjectsWithTag("CoinSwitch");
 
 
@@ -63,11 +64,11 @@ public class coinSwitch : MonoBehaviour
             coinSwitch s = w.GetComponent<coinSwitch>();
             if(s.isPushedDown == true)
             {   //Unpress if pressed
-                w.GetComponent<coinSwitch>().UnpressButton();
+                s.UnpressButton();
             }
             else
             {   //Press if unpressed
-                w.GetComponent<coinSwitch>().PressButton();
+                s.PressButton();
             }
             
         }
