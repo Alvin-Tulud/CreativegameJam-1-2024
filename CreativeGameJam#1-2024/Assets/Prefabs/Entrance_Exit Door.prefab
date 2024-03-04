@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 2884947528182830188}
   - component: {fileID: -291758406961680582}
   - component: {fileID: 3273631416226921615}
+  - component: {fileID: 5358166712046251521}
   m_Layer: 11
   m_Name: Entrance_Exit Door
   m_TagString: Door
@@ -5077,3 +5078,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5358166712046251521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814745951037758086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d541a7beaee56e84ea6ca895fb74f874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 100

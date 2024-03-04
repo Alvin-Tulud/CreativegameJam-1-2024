@@ -63,7 +63,7 @@ public class switchControls : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (worldControl)
+        if (worldControl && !door.GetComponent<StartEndDoor>().getPlayerTrigger())
         {
 
             //move camera and change size
@@ -107,7 +107,7 @@ public class switchControls : MonoBehaviour
             door.GetComponent<stateFlip>().setState(true);
         }
 
-        if(playerControl)
+        if(playerControl && !door.GetComponent<StartEndDoor>().getPlayerTrigger())
         {
 
             //move camera and change size
