@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8327315221500892524}
   - component: {fileID: 4546910826348664594}
   - component: {fileID: 2489581013556452725}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Safe_Single
-  m_TagString: Untagged
+  m_TagString: SafeWall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
