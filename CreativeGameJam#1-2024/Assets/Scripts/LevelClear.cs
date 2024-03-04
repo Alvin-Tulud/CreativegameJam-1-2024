@@ -87,12 +87,10 @@ public class LevelClear : MonoBehaviour
 
             if (SceneManager.GetActiveScene().buildIndex + 1 >= SceneManager.sceneCountInBuildSettings)
             {
-                Debug.Log("here");
                 SceneManager.LoadScene(0);
             }
             else
             {
-                Debug.Log("exit");
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
