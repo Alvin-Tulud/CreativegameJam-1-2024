@@ -18,9 +18,18 @@ EditorBuildSettings:
     path: Assets/Scenes/Level_Andrew_1.unity
     guid: 1668e62e0a353314baa191461f5b8165
   - enabled: 1
+    path: Assets/Scenes/Level_Alvin_4.unity
+    guid: f93d2f57596bef7499258fefa33dc252
+  - enabled: 1
     path: Assets/Scenes/Level_Prince_2.unity
     guid: 5c203d1814c00cf41979a31ceda92c48
   - enabled: 1
     path: Assets/Scenes/Level_Prince_1.unity
     guid: 7d085ecad58916d46907cda16b38e614
+  - enabled: 1
+    path: Assets/Scenes/Level_Vireak_1.unity
+    guid: fd797561f7aae4058b1eda5008b78c8f
+  - enabled: 1
+    path: Assets/Scenes/Level_Vireak_2.unity
+    guid: 37a224186bb6342c2b1dc42b1849ac7a
   m_configObjects: {}
