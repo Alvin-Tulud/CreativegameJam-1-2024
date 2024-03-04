@@ -35,4 +35,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Level_Vireak_2.unity
     guid: 37a224186bb6342c2b1dc42b1849ac7a
+  - enabled: 1
+    path: Assets/Scenes/Level_Andrew_2.unity
+    guid: 08958204d52ab1642a42104e74f65ae9
   m_configObjects: {}
