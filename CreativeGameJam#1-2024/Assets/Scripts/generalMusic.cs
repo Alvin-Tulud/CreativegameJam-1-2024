@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class generalMusic : MonoBehaviour
 {
@@ -32,6 +33,11 @@ public class generalMusic : MonoBehaviour
             bgmusic.volume = 0.3f;
             bgmusic.Play();
             isPlaying = true;
+        }
+
+        if (Input.GetKeyDown("r"))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
