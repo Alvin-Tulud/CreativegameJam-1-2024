@@ -12,6 +12,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Level_Alvin_2.unity
     guid: ed3d1e9608a77f3428dc7625b5b86ac6
   - enabled: 1
+    path: Assets/Scenes/Level_Alvin_3.unity
+    guid: 6227aac8075d6f448b93e2bbbd2bcc5d
+  - enabled: 1
     path: Assets/Scenes/Level_Andrew_1.unity
     guid: 1668e62e0a353314baa191461f5b8165
   - enabled: 1
